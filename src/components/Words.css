@@ -1,0 +1,124 @@
+.words-container {
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 2rem;
+}
+
+.words-container {
+  width: 100%;
+}
+.word {
+  position: relative;
+}
+.word__title {
+  margin-top: 3rem;
+  font-size: 4rem;
+  font-weight: 700;
+}
+.word__phonetic {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: var(--purple);
+}
+
+.word__audio {
+}
+
+.play-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.play-button__circle {
+  opacity: 0.25;
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.meanings-list {
+  margin-top: 2rem;
+}
+.meaning {
+  margin-top: 2rem;
+}
+.meaning__title {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    flex: 1;
+    background-color: var(--gray);
+    opacity: 0.5;
+  }
+}
+.definitions-list {
+  margin-top: 2rem;
+  list-style: disc;
+}
+.definition {
+  margin-top: 1rem;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-left: 1rem;
+
+  &::marker {
+    color: var(--purple);
+  }
+}
+
+.related-words {
+  margin-top: 2rem;
+}
+
+.related-words__inner {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.related-words__title {
+  color: gray;
+}
+.related-words__text {
+  display: flex;
+  & a {
+    padding: 0.5rem;
+    color: var(--purple);
+    text-decoration: none;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+}
+
+.loading {
+  opacity: 0;
+  animation: appear forwards 3s infinite linear;
+  animation-delay: 0.3s;
+}
+
+@keyframes appear {
+  from,
+  to {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}

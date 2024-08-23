@@ -1,0 +1,14 @@
+.error .link {
+  color: var(--white);
+  text-decoration: none;
+  padding: 1rem;
+  background-color: var(--purple);
+  border-radius: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

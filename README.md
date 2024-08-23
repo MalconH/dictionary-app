@@ -1,8 +1,10 @@
-# React + Vite
+# Dictionary App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Todo
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [x] ErrorPage en el root con button redirige al "/"
+- [x] Probar que click en sinonimo/antonimo redirija bien.
+- [x] Loadings al fetchear una word
+- Al cargar el src de la pronunciación: `phonetics: [1..., 2..., 3...]` capaz solo el `3` tiene un `audio`.
+  Hacer que se recorra todo el array dentro de phonetics y devolver el primer .audio que encuentre.
+- [x] Click en Librito header -> "/"
