@@ -4,6 +4,12 @@ import { LoadingIcon, PlayIcon } from "../components/icons";
 import "../components/Words.css";
 import { getWords } from "../services/dictionary";
 
+function getFirstAudioSrc(content) {
+  const itemWithAudio = content.phonetics.find((item) => item.audio.slice(-3) === "mp3");
+  // If no audio source is found itemWithAudio will be undefined
+  return itemWithAudio?.audio || null;
+}
+
 export async function loader({ params }) {
   const words = await getWords(params.word);
   return { words, word: params.word };
@@ -20,12 +26,13 @@ export function Words() {
     throw new Error({ message: "Unknown word", word: word });
   }
 
-  if (isLoading)
+  if (isLoading) {
     return (
       <div className="loading">
         <LoadingIcon />
       </div>
     );
+  }
 
   return (
     <ul className="words-container">
@@ -37,8 +44,8 @@ export function Words() {
 }
 
 function Word({ content }) {
-  const src = content?.phonetics[0]?.audio;
-  const hasAudio = src?.slice(-3) === "mp3";
+  const src = getFirstAudioSrc(content);
+  const hasAudio = typeof src === "string";
   const audioRef = useRef();
 
   const handleClick = () => {
