@@ -10,6 +10,8 @@ export default function Header() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  // Obtain the word in the Location and store it in a ref
+  const wordInLocation = location.pathname.split("/").at(-1).replace(/%20/gi, " ");
 
   const handleChangeFont = (value) => {
     const newFontFamily = value;
@@ -18,7 +20,6 @@ export default function Header() {
     document.body.classList.add(`theme--${newFontFamily}`);
     currentFontFamily.current = newFontFamily;
   };
-
   const handleChangeTheme = (isToggled) => {
     console.log(isToggled);
     document.body.classList.remove("dark");
@@ -27,15 +28,16 @@ export default function Header() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (query === wordInLocation) return;
     if (query.trim() === "") return;
+
     navigate(`/word/${query.trim()}`);
   };
 
-  // Checking if we're at Root location to sync search field
+  // Sync the search field when the location changes
   useEffect(() => {
-    const newQuery = location.pathname.split("/").at(-1).replace(/%20/gi, " ");
-    setQuery(newQuery);
-  }, [location.pathname]);
+    setQuery(wordInLocation);
+  }, [wordInLocation]);
 
   return (
     <header className="header">
