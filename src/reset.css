@@ -146,4 +146,5 @@ table {
 select,
 input {
   font-family: inherit;
+  color: currentColor;
 }
