@@ -43,7 +43,7 @@ export default function Header() {
     <header className="header">
       <div className="header__options">
         <Link to="/">
-          <img src="/logo.svg" alt="Dictionary app Logo" />
+          <img src="logo.svg" alt="Dictionary app Logo" />
         </Link>
         <div className="options">
           <div className="options__font">
