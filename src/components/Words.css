@@ -88,7 +88,7 @@
 .related-words__inner {
   margin-top: 1rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 1rem;
 }
 
@@ -97,6 +97,7 @@
 }
 .related-words__text {
   display: flex;
+  flex-wrap: wrap;
   & a {
     padding: 0.5rem;
     color: var(--purple);
